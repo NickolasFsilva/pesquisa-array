@@ -1,0 +1,73 @@
+programa 
+{
+        inclua biblioteca Util --> u
+
+        inteiro vet[1000], quant = 1000
+        inteiro alea, aux
+        inteiro i, x, num
+        logico encontrado = falso
+        inteiro tempo_atual, tempo_decorrido, tempo_inicial, tempo_total
+
+
+    funcao inicio() 
+    {
+
+
+        para(i = 0; i < quant; i++) 
+        {
+            alea = u.sorteia(1, 2000)       
+
+                vet[i] = alea
+            
+
+
+        }
+            tempo_inicial = u.tempo_decorrido()
+
+        para(i = 0; i < quant; i++) {
+            para(x = i + 1; x < quant; x++) {
+                se (vet[i] > vet[x]) {
+
+                    aux = x
+                    x = i
+                    i = aux
+                }
+
+            
+            }
+        }
+
+            tempo_atual = u.tempo_decorrido()
+                tempo_total = tempo_atual - tempo_inicial
+
+
+        para(i = 0; i < quant; i++) {
+            escreva(vet[i] + " ")
+
+            limpa()
+                    escreva("\n A ordenação demorou " + tempo_total + " millissegundos")
+         }
+
+         escreva("\nDigite um numero para pesquisar: ")
+            leia(num)
+
+
+        // Pesquisar numero
+
+        para(x = 0; x < quant; x++) {
+            se(vet[x] == num) 
+            {
+            encontrado = verdadeiro
+            }
+
+        }
+        se(encontrado == verdadeiro) {
+            escreva("Numero encontrado")
+        }
+
+        senao {
+            escreva("Numero não encontrado")
+            
+        }
+    }
+}
